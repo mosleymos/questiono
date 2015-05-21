@@ -1,0 +1,9 @@
+<%= form_for(@question) do |q| %>
+
+    <%= q.text_field :subject %>
+    <%= q.select(:level, ['Normal', 'Moyen', 'Difficile']) %>
+    <%= q.submit %>
+
+<% end %>
+
+    <%= @question.inspect %>
