@@ -1,0 +1,17 @@
+@import 'jeet/index' ;
+
+@include edit();
+
+
+.main-title {
+    @include center(720px);
+}
+
+.main-links {
+    text-align: center;
+}
+
+.split-column {
+    @include column(1/2);
+}
+
