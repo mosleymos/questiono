@@ -2,9 +2,9 @@ Rails.application.routes.draw do
   root 'static#home'
 
   get 'about' => 'static#about', as: :about
-
-
   resources :questions
+  
+  get 'questions/:id/delete' => 'questions#destroy', as: :delete_question
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
