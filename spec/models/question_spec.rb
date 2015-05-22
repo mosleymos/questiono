@@ -2,12 +2,13 @@
 #
 # Table name: questions
 #
-#  id         :integer          not null, primary key
-#  subject    :string
-#  level      :string
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
-#  theme_name :string
+#  id            :integer          not null, primary key
+#  subject       :string
+#  level         :string
+#  created_at    :datetime         not null
+#  updated_at    :datetime         not null
+#  theme_name    :string
+#  subtopic_name :string
 #
 
 require 'rails_helper'
