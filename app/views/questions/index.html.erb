@@ -13,6 +13,11 @@
     <% @questions.each do |question| %>
         <h3><%= question.subject %></h3>
         <h3><%= question.level %></h3>
+
+        <% question.subtopics.each do |subtopic| %>
+            <h3><%= subtopic.name  %></h3>
+        <% end %>
+
       <tr>
         <td><%= link_to 'Show', question %></td>
         <td><%= link_to 'Edit', edit_question_path(question) %></td>
