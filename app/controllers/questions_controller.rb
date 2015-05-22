@@ -15,10 +15,14 @@ class QuestionsController < ApplicationController
   # GET /questions/new
   def new
     @question = Question.new
+    @themes = collect_themes
+    @subtopics = collect_subtopics
   end
 
   # GET /questions/1/edit
   def edit
+    @themes = collect_themes
+    @subtopics = collect_subtopics
   end
 
   # POST /questions
@@ -41,7 +45,6 @@ class QuestionsController < ApplicationController
   # PATCH/PUT /questions/1.json
   def update
     respond_to do |format|
-    binding.pry
       if @question.update(question_params)
         format.html { redirect_to @question, notice: 'Question was successfully updated.' }
         format.json { render :show, status: :ok, location: @question }
@@ -70,6 +73,14 @@ class QuestionsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def question_params
-      params.require(:question).permit(:subject, :level, :theme_name)
+      params.require(:question).permit(:subject, :level, :theme_name, :subtopic_name)
+    end
+
+    def collect_themes
+      Theme.all.collect { |t| t.name }
+    end
+
+    def collect_subtopics
+      Subtopic.all.collect { |s| s.name }
     end
 end
