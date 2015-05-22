@@ -16,4 +16,10 @@
 class Theme < ActiveRecord::Base
   belongs_to :question
   has_many :subtopics
+
+
+  def Theme.collect_themes
+    Theme.all.collect{ |t| t.name }
+  end
+
 end
