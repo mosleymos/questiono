@@ -1,6 +1,7 @@
 <p id="notice"><%= notice %></p>
-
+<section class="content">
 <%= @answer.reply %>
 
-<%= link_to 'Edit', edit_answer_path(@answer) %> |
-<%= link_to 'Back', answers_path %>
+<%= link_to 'Edit', edit_answer_path(@answer), class:"pure-button navigation-links" %>
+<%= link_to 'Back', answers_path, class:"pure-button navigation-links" %>
+</section>

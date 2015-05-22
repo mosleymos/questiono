@@ -1,23 +1,12 @@
 <p id="notice"><%= notice %></p>
+<section class="content">
+<h1>Liste des sous sujets</h1>
 
-<h1>Listing Subtopics</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
     <% @subtopics.each do |subtopic| %>
         <h3><%= subtopic.name %></h3>
-      <tr>
-      </tr>
     <% end %>
-  </tbody>
-</table>
 
 <br>
 
-<%= link_to 'New Subtopic', new_subtopic_path %>
+<%= link_to 'New Subtopic', new_subtopic_path, class:"navigation-links pure-button" %>
+</section>

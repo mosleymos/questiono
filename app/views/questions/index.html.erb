@@ -1,33 +1,24 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Questions</h1>
+<section class="content">
+<h1>Liste des questions</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
 
-  <tbody>
     <% @questions.each do |question| %>
-        <h3><%= question.subject %></h3>
-        <h3><%= question.level %></h3>
-
+        <h3>Question: <%= question.subject %></h3>
+        <h3>Difficulté: <%= question.level %></h3>
         <% question.subtopics.each do |subtopic| %>
             <h3><%= subtopic.name  %></h3>
         <% end %>
 
-      <tr>
-        <td><%= link_to 'Show', question %></td>
-        <td><%= link_to 'Edit', edit_question_path(question) %></td>
-        <td><%= link_to 'Destroy', delete_question_path(question), method: :delete, confirm: 'Are you sure?'  %></td>
-        <td><%= link_to 'Editer une réponse pour la question', edit_answer_for_question_path(question.id) %></td>
-      </tr>
+        <%= link_to 'Show', question, class:"pure-button navigation-links" %>
+        <%= link_to 'Edit', edit_question_path(question), class:"pure-button navigation-links"  %>
+        <%= link_to 'Destroy', delete_question_path(question),class:"pure-button navigation-links", method: :delete, confirm: 'Are you sure?'  %>
+        <%= link_to 'Editer une réponse pour la question' ,  edit_answer_for_question_path(question.id), class:"pure-button navigation-links"  %>
     <% end %>
-  </tbody>
-</table>
 
 <br>
 
-<%= link_to 'New Question', new_question_path %>
+<%= link_to 'New Question', new_question_path, class:"main-links pure-button" %>
+
+</section>
