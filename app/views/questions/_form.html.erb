@@ -12,7 +12,7 @@
   <% end %>
 
   <%= f.text_field :subject %>
-  <%= f.select(:level, ['Facile', 'Normal', 'Difficile'])  %>
+  <%= f.select(:level, ['Débutant', 'Intermédiaire', 'Avancé', 'Expert'])  %>
   <%= f.select(:theme_name, @themes ) %>
   <%= f.select(:subtopic_name, @subtopics ) %>
 

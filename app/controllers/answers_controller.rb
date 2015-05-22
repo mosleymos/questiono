@@ -61,6 +61,12 @@ class AnswersController < ApplicationController
     end
   end
 
+
+  # GET /questions/:id/edit_an_answer
+  def edit_an_answer
+    @answer = Answer.new
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_answer
@@ -69,6 +75,6 @@ class AnswersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def answer_params
-      params[:answer]
+      params.require(:answer).permit(:reply, :question_id)
     end
 end
