@@ -17,5 +17,5 @@
 
 class Subtopic < ActiveRecord::Base
   belongs_to :theme
-  has_many :questions
+  has_and_belongs_to_many :questions
 end

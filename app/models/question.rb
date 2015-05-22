@@ -7,10 +7,11 @@
 #  level      :string
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  theme      :string
 #
 
 class Question < ActiveRecord::Base
   has_many :answers
   has_one :theme
-  has_many :subtopics
+  has_and_belongs_to_many :subtopics
 end
