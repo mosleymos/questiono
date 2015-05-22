@@ -15,4 +15,9 @@
 
 class Answer < ActiveRecord::Base
   belongs_to :question
+
+  # Rules for the model validation in the database
+
+  validates :reply,  presence: true           # You must have a reply
+  validates :reply,  length: { in: 3..3000}   # You must have a reply between 3 and 3000 characters
 end
