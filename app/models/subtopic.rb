@@ -18,4 +18,15 @@
 class Subtopic < ActiveRecord::Base
   belongs_to :theme
   has_and_belongs_to_many :questions
+
+
+  validates :name, presence: true,
+                   length: { minimum: 3},
+                   length: { maximum: 3}
+
+
+  def Subtopic.collect_subtopics
+    Subtopic.all.collect { |s| s.name }
+  end
+
 end
