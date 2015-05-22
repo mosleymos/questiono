@@ -4,7 +4,7 @@ class QuestionsController < ApplicationController
   # GET /questions
   # GET /questions.json
   def index
-    @questions = Question.all
+    @questions = Question.all.order(created_at: :asc)
   end
 
   # GET /questions/1
@@ -41,6 +41,7 @@ class QuestionsController < ApplicationController
   # PATCH/PUT /questions/1.json
   def update
     respond_to do |format|
+    binding.pry
       if @question.update(question_params)
         format.html { redirect_to @question, notice: 'Question was successfully updated.' }
         format.json { render :show, status: :ok, location: @question }
@@ -69,6 +70,6 @@ class QuestionsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def question_params
-      params.require(:question).permit(:subject, :level)
+      params.require(:question).permit(:subject, :level, :theme_name)
     end
 end
