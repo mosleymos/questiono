@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   get 'about' => 'static#about', as: :about
   resources :questions
   resources :subtopics
+  resources :themes
+  resources :answers
 
   resources :questions do
       resources :subtopics
