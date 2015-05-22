@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150521211645) do
+ActiveRecord::Schema.define(version: 20150522093322) do
 
   create_table "answers", force: :cascade do |t|
     t.string   "reply"
@@ -27,7 +27,7 @@ ActiveRecord::Schema.define(version: 20150521211645) do
     t.string   "level"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string   "theme"
+    t.string   "theme_name"
   end
 
   create_table "questions_subtopics", id: false, force: :cascade do |t|
