@@ -15,14 +15,14 @@ class QuestionsController < ApplicationController
   # GET /questions/new
   def new
     @question = Question.new
-    @themes = collect_themes
-    @subtopics = collect_subtopics
+    @themes = Theme.collect_themes
+    @subtopics = Subtopic.collect_subtopics
   end
 
   # GET /questions/1/edit
   def edit
-    @themes = collect_themes
-    @subtopics = collect_subtopics
+    @themes = Theme.collect_themes
+    @subtopics = Subtopic.collect_subtopics
   end
 
   # POST /questions
@@ -49,7 +49,7 @@ class QuestionsController < ApplicationController
         format.html { redirect_to @question, notice: 'Question was successfully updated.' }
         format.json { render :show, status: :ok, location: @question }
       else
-        format.html { render :edit }
+        format.html { render file: "#{unknown_problem}", response: 500, status: :unprocessable_entity }
         format.json { render json: @question.errors, status: :unprocessable_entity }
       end
     end
@@ -68,19 +68,15 @@ class QuestionsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_question
-      @question = Question.find(params[:id])
+        begin
+        @question = Question.find(params[:id])
+        rescue ActiveRecord::RecordNotFound
+          not_found
+        end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def question_params
       params.require(:question).permit(:subject, :level, :theme_name, :subtopic_name)
-    end
-
-    def collect_themes
-      Theme.all.collect { |t| t.name }
-    end
-
-    def collect_subtopics
-      Subtopic.all.collect { |s| s.name }
     end
 end
