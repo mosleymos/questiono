@@ -11,6 +11,7 @@
 
   <tbody>
     <% @answers.each do |answer| %>
+        <%= answer.reply  %>
       <tr>
         <td><%= link_to 'Show', answer %></td>
         <td><%= link_to 'Edit', edit_answer_path(answer) %></td>
