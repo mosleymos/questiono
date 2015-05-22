@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :questions
   resources :subtopics
   resources :themes
+  resources :answers
 
   resources :questions do
       resources :subtopics
