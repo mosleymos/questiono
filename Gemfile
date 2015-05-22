@@ -13,6 +13,8 @@ gem 'pg'
 gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
+# A better server
+gem 'thin'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -28,5 +30,9 @@ group :development, :test do
   gem 'annotate'
   # 'Role model are important' - Check ruby syntax
   gem 'rubocop'
+  # In order to reload our server
+  gem 'guard'
+  gem 'guard-livereload'
+  gem 'guard-rspec'
 end
 
