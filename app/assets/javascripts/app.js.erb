@@ -1,4 +1,7 @@
-//Helpers personnels
+// Constante de l'application nom url
+var questiono ="/questionoapp.herokuapp.com";
+
+// Helpers personnels
 
 var cl = function cl(something){
    return console.log(something); 
@@ -14,7 +17,7 @@ var ce  = function ce(error){
 angular.module('questionoapp', ['ngRoute', 'ngResource'])
 
 .controller('QuestionListCtrl', function($scope, $http){
-    $http.get('/questions.json')
+    $http.get( questiono +'/questions.json')
     .success(function(data){
         $scope.questions = data ;
     })
