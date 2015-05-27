@@ -1,0 +1,24 @@
+//Helpers personnels
+
+var cl = function cl(something){
+   return console.log(something); 
+};
+
+var ce  = function ce(error){
+    return console.error(error);
+};
+
+
+
+// Application angular
+angular.module('questionoapp', ['ngRoute', 'ngResource'])
+
+.controller('QuestionListCtrl', function($scope, $http){
+    $http.get('/questions.json')
+    .success(function(data){
+        $scope.questions = data ;
+    })
+    .error(function(data){
+        ce(data);
+    })
+});

@@ -1,6 +1,21 @@
-    <div class="split-column">
-    <h2 class="main-links pure-button"><%= link_to "Créer un questionnaire" , new_question_path %></h2>
+<section class="content">
+
+<p id="notice"><%= notice %></p>
+
+<h2>Créer une question ?</h2>
+
+    <%= link_to "Créer nouvelle question", new_question_path, class:"pure-button navigation-links" %>
+
+    <h2>Chercher une question ?</h2>
+    <input type="text" ng-model="search">
+    <div ng-controller="QuestionListCtrl">
+        <div ng-repeat="question in questions | filter:search"> 
+            <ul class="questions-list">
+                <li>{{ question.subject }}<a href="/questions/{{question.id}}/edit" class="pure-button navigation-links">Editer</a> <a href="/questions/{{ question.id }}" class="pure-button navigation-links">Voir</a> <a href="/questions/{{ question.id }}/delete" class="pure-button navigation-links">Supprimer</a></li>
+            </ul>
+            <hr>
+        </div>
     </div>
-    <div class="split-column">
-    <h2 class="main-links pure-button"><%= link_to "Voir les questionnaires" , questions_path %></h2>
-    </div>
+
+</section>
+
