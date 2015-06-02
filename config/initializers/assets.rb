@@ -14,4 +14,6 @@ Rails.application.config.assets.version = '1.0'
  Rails.application.config.assets.precompile += %w( angular.js )
  Rails.application.config.assets.precompile += %w( angular-resource.js )
  Rails.application.config.assets.precompile += %w( angular-route.js )
+ Rails.application.config.assets.precompile += %w( restangular.js )
+ Rails.application.config.assets.precompile += %w( underscore.js )
  Rails.application.config.assets.precompile += %w( app.js )

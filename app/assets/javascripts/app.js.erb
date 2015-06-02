@@ -1,27 +1,16 @@
-// Constante de l'application nom url
-var questiono ="/questionoapp.herokuapp.com";
-
-// Helpers personnels
-
-var cl = function cl(something){
-   return console.log(something); 
-};
-
-var ce  = function ce(error){
-    return console.error(error);
-};
-
-
-
 // Application angular
-angular.module('questionoapp', ['ngRoute', 'ngResource'])
+angular.module('questionoapp', ['ngRoute', 'ngResource', 'restangular'])
 
-.controller('QuestionListCtrl', function($scope, $http){
-    $http.get( questiono +'/questions.json')
-    .success(function(data){
-        $scope.questions = data ;
-    })
-    .error(function(data){
-        ce(data);
-    })
-});
+// CONTROLLERS 
+
+.controller('QuestionListCtrl',['$scope', 'Restangular', function($scope, Restangular){
+    $scope.questions = Restangular.all('questions.json').getList().$object ;
+}])
+
+// Controller en cours de travail
+.controller('QuestionCreateCtrl', ['$scope', '$log', function($scope){
+    $scope.createQuestion = function(question){
+        $log.info(question);
+    }
+}]);
+

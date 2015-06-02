@@ -1,5 +1,32 @@
-<h1>New Question</h1>
+<section ng-controller="QuestionCreateCtrl">
+<h1>Nouvelle Question</h1>
+
+<!--  Travail angular en cours
+
+
+<form class="pure-form pure-form-stacked">
+
+    <label for="fQuestionSubject">Sujet de la question</label>
+    <input type="text" id="fQuestionSubject" ng-model="question.subject">
+
+    <label for="fQuestionLevel">Niveau de la question</label>
+    <input type="text" id="fQuestionLevel" ng-model="question.level">
+
+    <label for="fQuestionSubtopic">Sous Thématique de la question</label>
+    <input type="text" id="fQuestionSubtopic" ng-model="question.subtopic_name">
+
+    <input type="submit" class="pure-button" value="Créer question" ng-click="createQuestion(question)">
+
+</form>
+
+-->
+
+
+
 
 <%= render 'form' %>
 
-<%= link_to 'Back', root_path  %>
+
+
+<%= link_to 'Back', root_path, class:"pure-button naviguation-links"  %>
+</section>
